@@ -28,7 +28,7 @@ class Player
   private
 
   def get_best_hand(suit_count, hand, flush, value_count, pairs)
-    if straight_flush?(suit_count, hand, flush)
+    if straight_flush?(suit_count, flush)
       puts "\tStraight flush with these cards: \n\t#{flush.join(', ')}!"
       hand = flush
     elsif four_of_a_kind?(value_count)
@@ -137,7 +137,7 @@ class Player
   end
 
   def get_hand_rank(suit_count, hand, flush, value_count, pairs)
-    if straight_flush?(suit_count, hand, flush)
+    if straight_flush?(suit_count, flush)
       9
     elsif four_of_a_kind?(value_count)
       8
