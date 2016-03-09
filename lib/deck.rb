@@ -1,10 +1,11 @@
 require './player'
 require './board'
 
+# this class represents the deck
 class Deck
   attr_accessor :deck, :suits, :values
 
-  SUITS = ['Hearts', 'Spades', 'Clubs', 'Diamonds'].freeze
+  SUITS = %w(Hearts, Spades, Clubs, Diamonds).freeze
   VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'].freeze
   RANGE_FOR_CARDS = (1..13).freeze
 
