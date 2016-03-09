@@ -102,7 +102,7 @@ class Player
 
   def get_groups_of_five(consecutive)
     unless consecutive.empty?
-     consecutive.select { |straight| straight if straight.each_cons(2).all? { |a, b| b == a + 1 } }
+      consecutive.select { |straight| straight if straight.each_cons(2).all? { |a, b| b == a + 1 } }
     end
   end
 
