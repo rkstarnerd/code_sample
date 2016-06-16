@@ -65,7 +65,7 @@ class Player
   end
 
   def ranks
-    Hash[Deck::VALUES.zip Deck::RANGE_FOR_CARDS]
+    Hash[Constants::VALUES.zip Constants::RANGE_FOR_CARDS]
   end
 
   def rank_cards(hand)

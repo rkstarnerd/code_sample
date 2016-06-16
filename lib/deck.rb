@@ -3,15 +3,11 @@ require './board'
 
 # this class represents the deck
 class Deck
-  attr_accessor :deck, :suits, :values
-
-  SUITS = %w(Hearts, Spades, Clubs, Diamonds).freeze
-  VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'].freeze
-  RANGE_FOR_CARDS = (1..13).freeze
+  attr_reader :deck, :suits, :values
 
   def initialize
-    @suits  = SUITS
-    @values = VALUES
+    @suits  = Constants::SUITS
+    @values = Constants::VALUES
     @deck   = suits.product(values)
   end
 
