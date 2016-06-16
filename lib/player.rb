@@ -1,3 +1,5 @@
+#this class represents the player's cards and chips
+
 class Player
   attr_accessor :cards, :chips
 
