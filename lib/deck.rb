@@ -1,14 +1,13 @@
-require './player'
-require './board'
+require_relative 'resources/constants'
 
 # this class represents the deck
 class Deck
-  attr_reader :deck, :suits, :values
+  attr_reader :deck
 
   def initialize
-    @suits  = Constants::SUITS
-    @values = Constants::VALUES
-    @deck   = suits.product(values)
+    suits  = Constants::SUITS
+    values = Constants::VALUES
+    @deck  = suits.product(values)
   end
 
   def shuffle!
@@ -21,9 +20,20 @@ class Deck
 
   def tell_hand(cards)
     hand = []
-    cards.each { |card| hand << ["#{card[1]} of #{card[0]}"] }
-    hand = hand.insert(-2, 'and').join(', ')
-    puts "\tYour hand includes the #{hand}.\n"
+    cards.each { |card| hand << "#{card[1]} of #{card[0]}" } 
+
+    hand = 
+      case
+      when cards.count == 2
+        hand.insert(1, 'and')
+      when cards.count > 2
+        hand.each { |card| card.insert(-1, ',') if card != hand.last }
+        hand.insert(-2, 'and')
+      else
+        hand
+      end
+
+    puts "\tYour hand includes the #{hand * ' '}.\n"
   end
 
   def flop(community_cards)
