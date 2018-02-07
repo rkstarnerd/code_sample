@@ -1,6 +1,6 @@
-require './player'
-require './board'
-require './deck'
+require_relative 'player'
+require_relative 'board'
+require_relative 'deck'
 
 #This class orchestrates the game
 class Game
